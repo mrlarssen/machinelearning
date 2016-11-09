@@ -2,6 +2,7 @@ import tensorflow as tf
 import pandas as pd
 import numpy as np
 from churnData import ChurnData
+from bp import BP
 
 np.set_printoptions(threshold='nan', suppress=True)
 
@@ -11,6 +12,10 @@ from sklearn.model_selection import train_test_split
 x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size = .2)
 x_test_df = pd.DataFrame(x_test)
 y_test_df = pd.DataFrame(y_test)
+
+#backprop = BP(x_train, y_train, x_test, y_test, 17, 2)
+#backprop.run()
+#backprop.test()
 
 #Number of input nodes - 17 features
 n_nodes_input = 17
@@ -102,4 +107,3 @@ def train_neural_network(x):
     
 
 train_neural_network(x)
-
