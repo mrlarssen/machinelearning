@@ -1,0 +1,28 @@
+from sklearn.ensemble import RandomForestClassifier as RF
+from sklearn.svm import SVC
+from sklearn.neural_network import MLPClassifier
+
+def accuracy(y_true,y_pred):
+    # NumPy interprets True and False as 1. and 0.
+    return np.mean(y_true == y_pred)
+    
+rf = RF()
+svc = SVC()
+mlp = MLPClassifier(solver='lbfgs', alpha=1e-5, hidden_layer_sizes=(100, 100,100), random_state=1)
+
+
+from churnData import ChurnData
+X,Y = ChurnData().load_data()
+
+from sklearn.model_selection import train_test_split
+x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size = .2)
+
+
+rf.fit(x_train, y_train)
+svc.fit(x_train, y_train)
+mlp.fit(x_train, y_train)
+
+print "Random forest:"
+print "%.3f" % accuracy(y_test, rf.predict(x_test))
+print "SVM:"
+print "%.3f" % accuracy(y_test, svc.predict(x_test))

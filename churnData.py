@@ -41,5 +41,16 @@ class ChurnData:
         from sklearn.preprocessing import StandardScaler
         scaler = StandardScaler()
         X = scaler.fit_transform(X)
+        
+        print(np.array(Y).shape)
+        print(np.array(Y_).shape)
 
         return X,Y
+        
+        
+        
+ChurnData().load_data()
+        
+        
+        
+        

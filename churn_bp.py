@@ -144,9 +144,11 @@ def train_neural_network(x):
         correct = tf.equal(pred, y)
         #correct = tf.equal(tf.argmax(prediction, 1), tf.argmax(y,1))
         
+        print(tf.shape(pred).eval({ x: test_data, y: np.transpose([test_expected]) }))
+        
         # Computing accuracy based on the correct tensor
-        accuracy = tf.reduce_mean(tf.cast(correct, 'float'))
-        print('Accuracy:', accuracy.eval({x: test_data, y:np.transpose([test_expected])}))
+        #accuracy = tf.reduce_mean(tf.cast(correct, 'float'))
+        #print('Accuracy:', accuracy.eval({x: test_data, y:np.transpose([test_expected])}))
         #print(pred.eval({x: test_data}))
         #print(y.eval({x: test_data, y:np.transpose([test_expected])}))
     

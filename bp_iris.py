@@ -90,7 +90,7 @@ def train_neural_network(x):
     train_step = tf.train.AdamOptimizer().minimize(cross_entropy)
     
     #Number of epochs (iterations)
-    n_epochs = 1000
+    n_epochs = 100
     
     with tf.Session() as sess:
         sess.run(tf.initialize_all_variables())
@@ -105,6 +105,8 @@ def train_neural_network(x):
         
         # Computing accuracy based on the correct tensor
         accuracy = tf.reduce_mean(tf.cast(correct, 'float'))
+        #print(tf.argmax(prediction,1).eval({x: x_test, y: y_test}))
+        #print(y.eval({x: x_test, y: y_test}))
         print('Accuracy:', accuracy.eval({x: x_test, y: y_test}))
 
         #from sklearn.metrics import accuracy_score
