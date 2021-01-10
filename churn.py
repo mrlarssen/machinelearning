@@ -1,7 +1,7 @@
 import pandas as pd
 import numpy as np
 
-df = pd.read_csv('/Users/nicholaslarssen/Development/Python/deeplearning/churn.csv')
+df = pd.read_csv('/Users/user/Development/Python/deeplearning/churn.csv')
 
 col_names = df.columns.tolist()
 
